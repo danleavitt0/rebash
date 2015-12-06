@@ -1,4 +1,4 @@
-import element from 'vdom-element'
+import element from 'virtex-element'
 import MainLayout from '../layout/mainLayout'
 import Nav from '../nav'
 

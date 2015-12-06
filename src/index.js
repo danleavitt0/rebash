@@ -1,13 +1,31 @@
-import createStore from './store'
-import element from 'vdom-element'
-import {listen} from 'virtual-component'
-import {handleOnce} from 'redux-effects-events'
-import vdux from 'vdux'
-import App from './app'
+/**
+ * Imports
+ */
 
-const store = createStore({})
+import vdux from 'vdux'
+import createStore from './store'
+import {handleOnce} from 'redux-effects-events'
+import element from 'virtex-element'
+import virtex from 'virtex'
+import App from './app'
+import {initializeApp} from './actions'
+
+/**
+ * Setup store
+ */
+
+const store = createStore({
+  posts: [],
+  0: {
+    0:{}
+  }
+})
+
+/**
+ * App
+ */
 
 store.dispatch(handleOnce('domready', () => {
-  listen(store.dispatch)
-  vdux(store, state => <App key='app' state={state.app} {...state}/>, document.body)
+  store.dispatch(initializeApp())
+  vdux(store, virtex(store.dispatch), state => <App posts={state.posts} url={state.url}/>, document.body)
 }))

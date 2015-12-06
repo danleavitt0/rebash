@@ -1,33 +1,18 @@
-
 /**
  * Imports
  */
 
-import element from 'vdom-element'
-import {initializeApp} from './actions'
-import router from './router'
+import element from 'virtex-element'
 
-/**
- * Before mount
- */
-
-function beforeMount () {
-  return initializeApp()
-}
-
-/**
- * Render
- */
-
-function render (props) {
-  return router(props.url || '/', props)
+function render ({props}) {
+  console.log(props)
+  return (
+    <div> Stuff </div>
+  )
 }
 
 /**
  * Exports
  */
 
-export default {
-  beforeMount,
-  render
-}
+export default render

@@ -1,15 +1,43 @@
+/**
+ * Imports
+ */
+
+import {createStore, applyMiddleware} from 'redux'
 import reducer from './reducer'
-import {applyMiddleware, createStore} from 'redux'
-import multi from 'redux-multi'
 import effects from 'redux-effects'
 import events from 'redux-effects-events'
 import location from 'redux-effects-location'
+import local from 'virtex-local'
+import multi from 'redux-multi'
+import logger from 'redux-logger'
+import dom from 'virtex-dom'
+import component from 'virtex-component'
 
-const middlewares = [
+/**
+ * Middleware
+ */
+
+const middleware = [
+  local,
+  component,
+  dom(document),
   multi,
   effects,
   events(),
-  location()
+  location(),
+  logger()
 ]
 
-export default (initialState) => applyMiddleware(...middlewares)(createStore)(reducer, initialState)
+/**
+ * Store
+ */
+
+function configureStore (initialState) {
+  return applyMiddleware(...middleware)(createStore)(reducer, initialState)
+}
+
+/**
+ * Exports
+ */
+
+export default configureStore

@@ -3,18 +3,47 @@
  * Imports
  */
 
-import element from 'vdom-element'
+import element from 'virtex-element'
 
 /**
  * Render
  */
 
-function render ({url}) {
+const styles = {
+  outer: {
+    height: '64px',
+    color: '#fff',
+    boxShadow: '0 0 5px 2px rgba(0,0,0,0.2)',
+    color: '#333',
+    backgroundColor: '#fff'
+  },
+  inner: {
+    display: 'flex',
+    alignItems: 'center',
+    contentAlign: 'center',
+    height: '100%',
+    width: '80%',
+    margin: '0 auto'
+  },
+  title: {
+    flex: '1'
+  },
+  link: {
+    margin: '4px'
+  }
+}
+
+function render ({props, state}) {
+  let {pageName} = props
+  pageName = typeof(pageName) === 'string' ? pageName : 'Title'
   return (
-    <div>
-      <a href='/'>Home</a>
-      <a href='/posts'>Posts</a>
-      <a href='/users'>Users</a>
+    <div style={styles.outer}>
+      <div style={styles.inner}>
+        <div style={styles.title}> {pageName} </div>
+        <a style={styles.link} href='/'>Home</a>
+        <a style={styles.link} href='/projects'>My Projects</a>
+        <a style={styles.link} href='/friends'>Friends</a>
+      </div>
     </div>
   )
 }
@@ -23,4 +52,6 @@ function render ({url}) {
  * Exports
  */
 
-export default render
+export default {
+  render
+}

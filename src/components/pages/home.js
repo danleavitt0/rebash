@@ -1,13 +1,26 @@
-import element from 'vdom-element'
+import element from 'virtex-element'
 import MainLayout from '../layout/mainLayout'
+import Card from '../elements/card'
 import Nav from '../nav'
+import ColumnLayout from '../elements/columnLayout'
+import Post from '../elements/post'
 
-function render () {
+const styles = {
+  container: {
+    display: 'flex'
+  },
+  card: {
+    margin: '12px'
+  }
+}
+
+function render ({props, state, actions}) {
+  console.log(props, state, actions)
   return (
-    <MainLayout nav={<Nav />}>
-      <div>Hello World</div>
-    </MainLayout>
+    <div>Hello</div>
   )
 }
 
-export default render
+export default {
+  render
+}

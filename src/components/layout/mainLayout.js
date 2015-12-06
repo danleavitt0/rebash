@@ -1,16 +1,31 @@
-import element from 'vdom-element'
+import element from 'virtex-element'
 
-function render ({nav, children}) {
+const styles = {
+  container: {
+    backgroundColor: '#f5f5f5',
+    height: '100vh'
+  },
+  main: {
+    margin: '20px auto',
+    width: '80%'
+  }
+}
+
+function render ({props, state}) {
+  console.log(props,state,'main layout')
+  const {nav, children} = props
   return (
-    <div>
+    <div style={styles.container}>
       <div class='header'>
         {nav}
       </div>
-      <div>
+      <div style={styles.main}>
         {children}
       </div>
     </div>
   )
 }
 
-export default render
+export default {
+  render
+}
