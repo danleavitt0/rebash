@@ -11,9 +11,8 @@ const styles = {
   }
 }
 
-function render ({props, state}) {
-  console.log(props,state,'main layout')
-  const {nav, children} = props
+function render ({props, state, children}) {
+  const {nav} = props
   return (
     <div style={styles.container}>
       <div class='header'>

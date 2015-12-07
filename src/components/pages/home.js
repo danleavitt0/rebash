@@ -14,11 +14,23 @@ const styles = {
   }
 }
 
-function render ({props, state, actions}) {
-  console.log(props, state, actions)
+function initialState () {
+  return {
+    value: ''
+  }
+}
+
+function render ({props, state, local}) {
+  const {posts} = props
   return (
-    <div>Hello</div>
+    <MainLayout nav={<Nav/>}>
+      {posts.map((post) => <div>{post.Name}</div>)}
+    </MainLayout>
   )
+}
+
+function reducer (state, action) {
+  return state
 }
 
 export default {

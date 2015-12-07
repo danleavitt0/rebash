@@ -3,12 +3,10 @@
  */
 
 import element from 'virtex-element'
+import router from './router'
 
 function render ({props}) {
-  console.log(props)
-  return (
-    <div> Stuff </div>
-  )
+  return router (props.url || '/', props)
 }
 
 /**

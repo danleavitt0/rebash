@@ -22,7 +22,7 @@ const router = enroute({
  */
 
 function home (params, props) {
-  return <Home key='home' />
+  return <Home projects={props} {...props}/>
 }
 
 function notFound () {

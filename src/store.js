@@ -10,6 +10,7 @@ import location from 'redux-effects-location'
 import local from 'virtex-local'
 import multi from 'redux-multi'
 import logger from 'redux-logger'
+import fetch from 'redux-effects-fetch'
 import dom from 'virtex-dom'
 import component from 'virtex-component'
 
@@ -18,11 +19,12 @@ import component from 'virtex-component'
  */
 
 const middleware = [
-  local,
-  component,
-  dom(document),
   multi,
   effects,
+  component,
+  dom(document),
+  local,
+  fetch,
   events(),
   location(),
   logger()

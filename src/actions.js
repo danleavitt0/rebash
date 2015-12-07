@@ -14,20 +14,13 @@ const HYDRATE_STATE = 'HYDRATE_STATE'
 function initializeApp () {
   return [
     bindUrl(urlDidChange),
-    hydrateState({})
+    fetchPosts()
   ]
 }
 
 function result ({value}) {
   const {buckets} = value
   return postsDidLoad(buckets)
-}
-
-function hydrateState (state) {
-  return {
-    type: HYDRATE_STATE,
-    payload: state
-  }
 }
 
 function urlDidChange (url) {
@@ -39,8 +32,8 @@ function urlDidChange (url) {
 
 function fetchPosts () {
   return [
-    bind(fetch(postsUrl), result, (err) => console.log(err)),
-    postsAreLoading()
+    postsAreLoading(),
+    bind(fetch(postsUrl), result, (err) => console.warn(err))
   ]
 }
 
