@@ -22,6 +22,7 @@ const router = enroute({
  */
 
 function home (params, props) {
+  console.log('home')
   return <Home projects={props} {...props}/>
 }
 

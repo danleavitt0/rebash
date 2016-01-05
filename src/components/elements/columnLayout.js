@@ -1,5 +1,4 @@
 import element from 'virtex-element'
-import {localAction} from 'virtex-local'
 
 const styles = {
   container: {

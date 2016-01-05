@@ -5,8 +5,12 @@
 import element from 'virtex-element'
 import router from './router'
 
-function render ({props}) {
-  return router (props.url || '/', props)
+function render (state) {
+  // return router(props.url, props)
+  console.log(state)
+  return (
+    <div> Hello World </div>
+  )
 }
 
 /**

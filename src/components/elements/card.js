@@ -1,5 +1,4 @@
-import element from 'vdom-element'
-import localize from 'vdux-local'
+import element from 'virtex-element'
 import {merge} from '../../utils'
 
 const styles = {
@@ -22,7 +21,7 @@ const styles = {
 function render ({header, children, style, link}) {
   console.log(link)
   const headerElement = typeof(header) === 'function' ?
-    header : 
+    header :
     <div style={styles.header}> {header} </div>
   return (
     <a href={link}>

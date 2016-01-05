@@ -2,10 +2,9 @@
  * Imports
  */
 
-import element from 'vdom-element'
+import element from 'virtex-element'
 import {fetchPosts} from '../../actions'
 import Card from './card'
-import localize, {localAction} from 'vdux-local'
 
 /**
  * Before mount
@@ -47,8 +46,8 @@ function reducer (state, action) {
  * Exports
  */
 
-export default localize ({
+export default {
   beforeMount,
   reducer,
   render
-})
+}

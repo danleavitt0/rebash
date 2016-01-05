@@ -1,8 +1,7 @@
-import element from 'vdom-element'
+import element from 'virtex-element'
 import MainLayout from '../layout/mainLayout'
 import Card from '../elements/card'
 import Nav from '../nav'
-import localize, {localAction} from 'vdux-local'
 import Project from '../elements/project'
 
 function render ({project}, childState) {
@@ -19,7 +18,7 @@ function reducer (state, action) {
   return state
 }
 
-export default localize ({
+export default {
   reducer,
   render
-})
+}

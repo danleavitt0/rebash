@@ -8,9 +8,9 @@ var cors = require('cors')
 var app = express()
 var bodyParser = require('body-parser')
 var AWS = require('aws-sdk')
-AWS.config.loadFromPath('./AWSConfig.json')
+AWS.config.loadFromPath('api/AWSConfig.json')
 
-var s3 = new AWS.S3();
+var s3 = new AWS.S3()
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -27,7 +27,7 @@ var router = express.Router()              // get an instance of the express Rou
 router.route('/posts')
   .get(function (req, res) {
     s3.listBuckets(function(err, data) {
-      if (err) { console.log("Error:", err) }
+      if (err) { console.log('Error:', err) }
       else {
         res.json({buckets: data.Buckets})
       }
@@ -40,14 +40,14 @@ router.route('/projects')
   })
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     res.json({ message: 'hooray! welcome to our api!' })
-});
+})
 
 // more routes for our API will happen here
 app.use('/api', router)
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
+app.listen(port)
 console.log('Magic happens on port ' + port)
