@@ -1,4 +1,3 @@
-import ephemeral from 'redux-ephemeral'
 import {
   URL_DID_CHANGE,
   POSTS_ARE_LOADING,
@@ -30,7 +29,7 @@ function reducer (state, action) {
         postsAreLoading: false
       }
   }
-  return ephemeral(state, action)
+  return state
 }
 
 export default reducer

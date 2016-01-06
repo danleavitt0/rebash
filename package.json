@@ -22,7 +22,8 @@
     "s3": "^4.4.0",
     "vdux": "^0.1.8",
     "vdux-preset-client": "^0.2.3",
-    "virtex": "^0.1.18",
+    "virtex": "^0.1.17",
+    "virtex-dom": "^0.1.4",
     "virtex-element": "^0.1.5"
   },
   "devDependencies": {

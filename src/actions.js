@@ -10,7 +10,6 @@ const POSTS_ARE_LOADING = 'POSTS_ARE_LOADING'
 const POSTS_DID_LOAD = 'POSTS_DID_LOAD'
 const HYDRATE_STATE = 'HYDRATE_STATE'
 
-
 function initializeApp () {
   return [
     bindUrl(urlDidChange),
@@ -28,6 +27,21 @@ function urlDidChange (url) {
     type: URL_DID_CHANGE,
     payload: url
   }
+}
+
+function createProject () {
+  return [
+    bind(fetch(jsonServerUrl + '/projects', {
+      method: 'POST',
+      headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+      body: JSON.stringify({
+        name: 'test-rebash-1'
+      })
+    }), info => console.log(info), err => console.warn(err))
+  ]
 }
 
 function fetchPosts () {
@@ -53,6 +67,7 @@ function postsDidLoad (posts) {
 export {
   initializeApp,
   fetchPosts,
+  createProject,
 
   URL_DID_CHANGE,
   POSTS_ARE_LOADING,

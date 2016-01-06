@@ -9,18 +9,16 @@ import client from 'vdux-preset-client'
 import location from 'redux-effects-location'
 import logger from 'redux-logger'
 import fetch from 'redux-effects-fetch'
-import thunk from 'redux-thunk'
 
 /**
  * Middleware
  */
 
 const middleware = [
-  thunk,
   effects,
   events(),
-  location(),
   fetch,
+  location(),
   logger()
 ]
 

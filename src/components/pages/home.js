@@ -4,33 +4,16 @@ import Card from '../elements/card'
 import Nav from '../nav'
 import ColumnLayout from '../elements/columnLayout'
 import Post from '../elements/post'
-
-const styles = {
-  container: {
-    display: 'flex'
-  },
-  card: {
-    margin: '12px'
-  }
-}
-
-function initialState () {
-  return {
-    value: ''
-  }
-}
+import {createProject} from '../../actions'
 
 function render ({props, state, local}) {
   const {posts} = props
   return (
     <MainLayout nav={<Nav/>}>
+      <button onClick={createProject}>Create New</button>
       {posts.map((post) => <div>{post.Name}</div>)}
     </MainLayout>
   )
-}
-
-function reducer (state, action) {
-  return state
 }
 
 export default {

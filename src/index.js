@@ -25,7 +25,7 @@ store.dispatch(handleOnce('domready', () => {
   store.dispatch(initializeApp())
   vdux(
     store,
-    App,
+    state => <App url={state.url} posts={state.posts} {...state}/>,
     document.body
   )
 }))
