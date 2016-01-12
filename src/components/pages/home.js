@@ -4,18 +4,23 @@ import Card from '../elements/card'
 import Nav from '../nav'
 import ColumnLayout from '../elements/columnLayout'
 import Post from '../elements/post'
-import {createProject} from '../../actions'
+import {createProject, initializeApp} from '../../actions'
+
+function beforeMount () {
+  return initializeApp()
+}
 
 function render ({props, state, local}) {
   const {posts} = props
   return (
     <MainLayout nav={<Nav/>}>
       <button onClick={createProject}>Create New</button>
-      {posts.map((post) => <div>{post.Name}</div>)}
+      {posts.map(({Name}) => <div>{Name}</div>)}
     </MainLayout>
   )
 }
 
 export default {
+  beforeMount,
   render
 }

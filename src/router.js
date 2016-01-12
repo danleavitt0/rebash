@@ -12,6 +12,12 @@ import Projects from './components/pages/projects'
  * Routes
  */
 
+const styles = {
+  all: {
+    fontFamily: "'Roboto', sans-serif"
+  }
+}
+
 const router = enroute({
   '/': home,
   '*': notFound
@@ -22,11 +28,11 @@ const router = enroute({
  */
 
 function home (params, props) {
-  return <Home projects={props} {...props}/>
+  return <Home style={styles.all} projects={props} {...props}/>
 }
 
 function notFound () {
-  return <NotFound />
+  return <NotFound style={styles.all} />
 }
 
 /**

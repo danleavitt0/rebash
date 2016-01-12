@@ -2,30 +2,39 @@
  * Imports
  */
 
-import vdux from 'vdux'
-import createStore from './store'
-import {handleOnce} from 'redux-effects-events'
+import vdux from 'vdux/dom'
+import domready from '@f/domready'
 import element from 'virtex-element'
 import App from './app'
-import {initializeApp} from './actions'
+import reducer from './reducer'
+import middleware from './middleware'
 
 /**
  * Setup store
  */
 
-const store = createStore({
-  posts: []
-})
+const initialState = {
+  posts: [],
+  url: '/'
+}
 
 /**
  * App
  */
+let hmr
+domready(() => {
+  hmr = vdux({
+    middleware,
+    reducer,
+    initialState,
+    app: App
+  })
+})
 
-store.dispatch(handleOnce('domready', () => {
-  store.dispatch(initializeApp())
-  vdux(
-    store,
-    state => <App url={state.url} posts={state.posts} {...state}/>,
-    document.body
-  )
-}))
+if (module.hot) {
+  // These two lines are waiting on https://github.com/AgentME/browserify-hmr
+  // module.hot.decline()
+  // module.hot.unaccepted(() => window.location.reload())
+  module.hot.accept(['./app', './reducer'],
+    () => hmr.replace(require('./app').default, require('./reducer').default))
+}

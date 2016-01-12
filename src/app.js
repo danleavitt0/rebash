@@ -2,17 +2,15 @@
  * Imports
  */
 
-import element from 'virtex-element'
+import element from 'vdux/element'
 import router from './router'
 
-function render ({props}) {
-  return router(props.url, props)
+function render ({url, ...props}) {
+  return router(url, props)
 }
 
 /**
  * Exports
  */
 
-export default {
-  render
-}
+export default render

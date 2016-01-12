@@ -45,10 +45,7 @@ function createProject () {
 }
 
 function fetchPosts () {
-  return [
-    postsAreLoading(),
-    bind(fetch(postsUrl), result, (err) => console.warn(err))
-  ]
+  return bind(fetch(postsUrl), result)
 }
 
 function postsAreLoading () {

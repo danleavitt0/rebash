@@ -3,7 +3,8 @@ import element from 'virtex-element'
 const styles = {
   container: {
     backgroundColor: '#f5f5f5',
-    height: '100vh'
+    height: '100vh',
+    fontFamily: 'Roboto, sans-serif'
   },
   main: {
     margin: '20px auto',

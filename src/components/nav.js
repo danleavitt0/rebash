@@ -26,10 +26,11 @@ const styles = {
     margin: '0 auto'
   },
   title: {
-    flex: '1'
+    flex: '1',
+    fontSize: 28
   },
   link: {
-    margin: '4px'
+    margin: '8px',
   }
 }
 
