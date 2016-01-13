@@ -2,7 +2,7 @@
  * Imports
  */
 
-import element from 'vdux/element'
+import element from '../vdux/element'
 import router from './router'
 
 function render ({url, ...props}) {
